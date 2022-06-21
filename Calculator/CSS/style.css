@@ -1,0 +1,9 @@
+.global{
+    width: 23%;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+}
+.global:hover{
+    background-color: aliceblue;
+}
