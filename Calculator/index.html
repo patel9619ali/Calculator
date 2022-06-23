@@ -19,12 +19,12 @@
     
     <h1 class="text-center">Calculator Design Using HTML Layout</h1>
     <div class="container border w-25 p-0">
-      <input type="text" value="Hello" name="result-before" id="resultBefore" class="result w-100 border-0" value="">
-      <input type="text" value="" name="current-result" id="result" class="result w-100 border-0" value="">
+      <div type="text" name="result-before" id="resultBefore" class="result w-100 border-0"></div>
+      <div type="text" name="current-result" id="result" class="result w-100 border-0"></div>
       <div class="calculater_wrapper">
         <div class="first-row">
           <input type="button" name="clear-all" id="clearAll" value="AC" class="global">
-          <input type="button" name="going-backward" value="Del" class="global">
+          <input type="button" name="going-backward" id="delete_backString" value="Del" class="global">
           <input type="button" name="sign-operand" value=")" class="global">
           <input type="button" name="sign-operand" value="%" class="global">
         </div>
