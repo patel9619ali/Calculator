@@ -4,40 +4,42 @@ class Calculator{
         this.currentResult = currentResult;
     }
     clear(currentResult){
-        clearAll.addEventListener('click' , function(){
             currentResult.innerHTML.length > 0 ? currentResult.innerHTML = '' :  currentResult.innerHTML = '';
-        })
-        
     }    
-    delete(currentResult){
-        deleteString.addEventListener("click" , function(){
-           let firstNumber = currentResult.innerHTML;
-        //    firstNumber = firstNumber.substr(0 , firstNumber.length-1);
-        //    console.log(firstNumber);
-           for (let i = firstNumber; i < firstNumber.length; i--) {
-            // if (firstNumber[i] > 0) {
-                firstNumber = firstNumber.substr(0 , firstNumber.length-1);
-                currentResult.innerHTML =  firstNumber;
-            // }
-          }
-        //    currentResult.innerHTML = firstNumber;
-        //    if (currentResult.innerHTML.length > 0) {
-            // let secondNumber = currentResult.innerHTML.slice(0 , currentResult.innerHTML.length -1);
-            // currentResult.innerHTML =  secondNumber; 
-            // console.log(currentResult.innerHTML);
-            // console.log("true");
-        //    }
-        //    else{
-        //     console.log("False");
-        //     }
-
-        //    currentResult.innerHTML = secondNumber;
-        })
+    delete(currentResulting){
+        currentResult.innerHTML = currentResulting.slice(0, -1);
     }
     appendNumber(number){
         currentResult.innerHTML = currentResult.innerHTML + number.toString();
     }
-
+    operation(operand){
+        switch (operand) {
+            case "+":
+                previousOperand.innerHTML = previousOperand.innerHTML + currentResult.innerHTML;
+                currentResult.innerHTML = '';
+                console.log(previousOperand.innerHTML);
+                console.log("Its a Plus");
+                break;
+            case "-":
+                previousOperand.innerHTML = previousOperand.innerHTML - currentResult.innerHTML;
+                currentResult.innerHTML = '';
+                console.log("Its a Minus");
+                break;
+            case "*":
+                previousOperand.innerHTML = previousOperand.innerHTML * currentResult.innerHTML;
+                currentResult.innerHTML = '';
+                console.log("Its a Multiply");
+                break;
+            case "=":
+                previousOperand.innerHTML = previousOperand.innerHTML +  currentResult.innerHTML;
+                currentResult.innerHTML = '';
+            console.log("Its a Evaluation");
+            break;
+            default:
+                console.log("Please Add Something");
+                break;
+        }
+    }
 }
 
 
@@ -52,7 +54,12 @@ const calculator = new Calculator(previousOperand , currentResult);
 buttonAll.forEach(function (buttonList) {
     buttonList.addEventListener("click" ,function () {
         calculator.appendNumber(buttonList.value);
-        calculator.clear(currentResult);
-        calculator.delete(currentResult);
+        calculator.operation(buttonList.value);
     })  
+})
+clearAll.addEventListener('click' , function(){
+    calculator.clear(currentResult);
+})
+deleteString.addEventListener("click" , function(){
+    calculator.delete(currentResult.innerHTML);
 })
