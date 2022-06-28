@@ -13,32 +13,31 @@ class Calculator{
         currentResult.innerHTML = currentResult.innerHTML + number.toString();
     }
     operation(operand){
+        let computation;
+        // let current = currentResult.innerHTML;
+        // let prev = previousOperand.innerHTML;
+        // console.log(current);
+        // prev == current;
+        // previousOperand.innerHTML =  currentResult.innerHTML;
         switch (operand) {
-            case "+":
-                previousOperand.innerHTML = previousOperand.innerHTML + currentResult.innerHTML;
-                currentResult.innerHTML = '';
-                console.log(previousOperand.innerHTML);
-                console.log("Its a Plus");
-                break;
-            case "-":
-                previousOperand.innerHTML = previousOperand.innerHTML - currentResult.innerHTML;
-                currentResult.innerHTML = '';
-                console.log("Its a Minus");
-                break;
-            case "*":
-                previousOperand.innerHTML = previousOperand.innerHTML * currentResult.innerHTML;
-                currentResult.innerHTML = '';
-                console.log("Its a Multiply");
-                break;
-            case "=":
-                previousOperand.innerHTML = previousOperand.innerHTML +  currentResult.innerHTML;
-                currentResult.innerHTML = '';
-            console.log("Its a Evaluation");
-            break;
-            default:
-                console.log("Please Add Something");
-                break;
+        case '+':
+            previousOperand.innerHTML =  currentResult.innerHTML + previousOperand.innerHTML;
+            currentResult.innerHTML = "";
+            break
+        case '-':
+            // computation = prev - current
+            break
+        case '*':
+            // computation = prev * current
+            break
+        case '÷':
+            // computation = prev / current
+            break
+        default:
+            return
         }
+        
+        // currentResult.innerHTML = computation;
     }
 }
 
